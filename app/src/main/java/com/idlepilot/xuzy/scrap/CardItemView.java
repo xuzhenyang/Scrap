@@ -40,7 +40,7 @@ public class CardItemView extends LinearLayout
 
     public void fillData(CardDataItem itemData) {
         ImageLoader.getInstance().displayImage(itemData.getImagePath(), imageView);
-        textTv.setText(itemData.getText());
+        textTv.setText(itemData.getContent());
         dateTv.setText(itemData.getDate());
     }
 }

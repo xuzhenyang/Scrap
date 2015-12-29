@@ -4,7 +4,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="#fff"
-              android:orientation="vertical" >
+              android:orientation="vertical">
+
 
     <TextView
         android:layout_width="fill_parent"
@@ -13,66 +14,72 @@
         android:gravity="center"
         android:text="碎纸片"
         android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        />
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <com.idlepilot.xuzy.scrap.CardSlidePanel
             android:id="@+id/image_slide_panel"
             android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             card:bottomMarginTop="40dp"
-            card:yOffsetStep="22dp"
-            android:layout_height="fill_parent" >
+            card:yOffsetStep="22dp">
 
             <LinearLayout
                 android:id="@+id/card_bottom_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/card_left_btn"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/ignore_button" />
+                    android:background="@drawable/ignore_button"/>
 
                 <Button
                     android:id="@+id/card_center_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/home_button" />
+                    android:background="@drawable/home_button"/>
 
                 <Button
                     android:id="@+id/card_right_btn"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/like_button" />
+                    android:background="@drawable/like_button"/>
             </LinearLayout>
 
             <com.idlepilot.xuzy.scrap.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"/>
 
             <com.idlepilot.xuzy.scrap.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"/>
 
             <com.idlepilot.xuzy.scrap.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"/>
 
             <com.idlepilot.xuzy.scrap.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"/>
 
         </com.idlepilot.xuzy.scrap.CardSlidePanel>
     </RelativeLayout>

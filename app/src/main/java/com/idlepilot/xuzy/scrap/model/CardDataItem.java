@@ -8,8 +8,20 @@ package com.idlepilot.xuzy.scrap.model;
 public class CardDataItem
 {
     private String imagePath;
-    private String text;
+    private String content;
     private String date;
+
+    public CardDataItem()
+    {
+
+    }
+
+    public CardDataItem(String imagePath, String content, String date)
+    {
+        this.imagePath = imagePath;
+        this.content = content;
+        this.date = date;
+    }
 
     public String getImagePath()
     {
@@ -21,14 +33,14 @@ public class CardDataItem
         this.imagePath = imagePath;
     }
 
-    public String getText()
+    public String getContent()
     {
-        return text;
+        return content;
     }
 
-    public void setText(String text)
+    public void setContent(String content)
     {
-        this.text = text;
+        this.content = content;
     }
 
     public String getDate()

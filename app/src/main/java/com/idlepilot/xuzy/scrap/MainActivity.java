@@ -2,9 +2,17 @@ package com.idlepilot.xuzy.scrap;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -22,6 +30,36 @@ public class MainActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        //if you want to update the items at a later time it is recommended to keep it in a variable
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_home);
+        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName(R.string.drawer_item_settings);
+
+//create the drawer and remember the `Drawer` result object
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle("hello");
+//        setSupportActionBar(toolbar);
+        Drawer result = new DrawerBuilder()
+                .withActivity(this)
+//                .withRootView(R.id.drawer_layout)
+                .withToolbar(toolbar)
+                .addDrawerItems(
+                        item1,
+                        new DividerDrawerItem(),
+                        item2,
+                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings)
+                )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener()
+                {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem)
+                    {
+                        // do something with the clicked item :D
+                        return true;
+                    }
+                })
+                .build();
+
         initImageLoader();
         //有毒 此判断本意是为了保证翻转屏幕后不变
         //然而它在这里new CardFragment。。。
@@ -32,6 +70,7 @@ public class MainActivity extends FragmentActivity
                     .add(R.id.container, new CardFragment())
                     .commitAllowingStateLoss();
         }
+
     }
 
     @SuppressWarnings("deprecation")

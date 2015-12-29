@@ -53,6 +53,7 @@ public class CardFragment extends Fragment
     {
         View rootView = inflater.inflate(R.layout.card_layout, null);
         initView(rootView);
+
         return rootView;
     }
 
@@ -66,19 +67,19 @@ public class CardFragment extends Fragment
             @Override
             public void onShow(int index)
             {
-                Log.d("CardFragment", "正在显示-" + dataList.get(index).getText());
+                Log.d("CardFragment", "正在显示-" + dataList.get(index).getContent());
             }
 
             @Override
             public void onCardVanish(int index, int type)
             {
-                Log.d("CardFragment", "正在消失-" + dataList.get(index).getText() + " 消失type=" + type);
+                Log.d("CardFragment", "正在消失-" + dataList.get(index).getContent() + " 消失type=" + type);
             }
 
             @Override
             public void onItemClick(View cardView, int index)
             {
-                Log.d("CardFragment", "卡片点击-" + dataList.get(index).getText());
+                Log.d("CardFragment", "卡片点击-" + dataList.get(index).getContent());
             }
         };
         slidePanel.setCardSwitchListener(cardSwitchListener);
@@ -102,19 +103,19 @@ public class CardFragment extends Fragment
 
     private void prepareDataList()
     {
-        int num = imagePaths.length;
-
-        for (int j = 0; j < 3; j++)
-        {
-            for (int i = 0; i < num; i++)
-            {
-                CardDataItem dataItem = new CardDataItem();
-                dataItem.setText(text[i]);
-                dataItem.setImagePath(imagePaths[i]);
-                dataItem.setDate("2015-12-12");
-                dataList.add(dataItem);
-            }
-        }
+        CardManager cm = new CardManager(getActivity());
+        cm.clearCardTable();
+        CardDataItem card1 = new CardDataItem("assets://wall01.jpg", "test1", "2015-12-30");
+        CardDataItem card2 = new CardDataItem("assets://wall02.jpg", "test2", "2015-12-30");
+        CardDataItem card3 = new CardDataItem("assets://wall03.jpg", "test3", "2015-12-30");
+        CardDataItem card4 = new CardDataItem("assets://wall04.jpg", "test4", "2015-12-30");
+        CardDataItem card5 = new CardDataItem("assets://wall05.jpg", "test5", "2015-12-30");
+        cm.addCard(card1);
+        cm.addCard(card2);
+        cm.addCard(card3);
+        cm.addCard(card4);
+        cm.addCard(card5);
+        dataList = cm.loadAllCard();
     }
 
 }
