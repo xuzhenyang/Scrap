@@ -1,6 +1,7 @@
 package com.idlepilot.xuzy.scrap;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.idlepilot.xuzy.scrap.CardSlidePanel.CardSwitchListener;
+import com.idlepilot.xuzy.scrap.CardSlidePanel.AddBtnListener;
+import com.idlepilot.xuzy.scrap.model.CardDataItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ public class CardFragment extends Fragment
 {
 
     private CardSwitchListener cardSwitchListener;
+    private CardSlidePanel.AddBtnListener addBtnListener;
 
     private String imagePaths[] = {"assets://wall01.jpg",
             "assets://wall02.jpg", "assets://wall03.jpg",
@@ -62,22 +66,35 @@ public class CardFragment extends Fragment
             @Override
             public void onShow(int index)
             {
-                Log.d("CardFragment", "正在显示-" + dataList.get(index).text);
+                Log.d("CardFragment", "正在显示-" + dataList.get(index).getText());
             }
 
             @Override
             public void onCardVanish(int index, int type)
             {
-                Log.d("CardFragment", "正在消失-" + dataList.get(index).text + " 消失type=" + type);
+                Log.d("CardFragment", "正在消失-" + dataList.get(index).getText() + " 消失type=" + type);
             }
 
             @Override
             public void onItemClick(View cardView, int index)
             {
-                Log.d("CardFragment", "卡片点击-" + dataList.get(index).text);
+                Log.d("CardFragment", "卡片点击-" + dataList.get(index).getText());
             }
         };
         slidePanel.setCardSwitchListener(cardSwitchListener);
+
+
+        addBtnListener = new AddBtnListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Log.d("CardFragment", "btnOnclick");
+                Intent i = new Intent(getActivity(), AddCardActivity.class);
+                startActivity(i);
+            }
+        };
+        slidePanel.setAddBtnListener(addBtnListener);
 
         prepareDataList();
         slidePanel.fillData(dataList);
@@ -92,9 +109,9 @@ public class CardFragment extends Fragment
             for (int i = 0; i < num; i++)
             {
                 CardDataItem dataItem = new CardDataItem();
-                dataItem.text = text[i];
-                dataItem.imagePath = imagePaths[i];
-                dataItem.date = "2015-12-12";
+                dataItem.setText(text[i]);
+                dataItem.setImagePath(imagePaths[i]);
+                dataItem.setDate("2015-12-12");
                 dataList.add(dataItem);
             }
         }

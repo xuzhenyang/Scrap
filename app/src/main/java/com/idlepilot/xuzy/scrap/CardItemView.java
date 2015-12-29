@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.idlepilot.xuzy.scrap.model.CardDataItem;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -38,8 +39,8 @@ public class CardItemView extends LinearLayout
     }
 
     public void fillData(CardDataItem itemData) {
-        ImageLoader.getInstance().displayImage(itemData.imagePath, imageView);
-        textTv.setText(itemData.text);
-        dateTv.setText(itemData.date);
+        ImageLoader.getInstance().displayImage(itemData.getImagePath(), imageView);
+        textTv.setText(itemData.getText());
+        dateTv.setText(itemData.getDate());
     }
 }

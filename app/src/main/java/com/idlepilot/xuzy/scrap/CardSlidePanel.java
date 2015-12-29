@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.idlepilot.xuzy.scrap.model.CardDataItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class CardSlidePanel extends ViewGroup
     private Object obj1 = new Object();
 
     private CardSwitchListener cardSwitchListener; // 回调接口
+    private AddBtnListener addBtnListener;
     private List<CardDataItem> dataList; // 存储的数据链表
     private int isShowing = 0; // 当前正在显示的小项
     private View leftBtn, centerBtn, rightBtn;
@@ -102,11 +105,12 @@ public class CardSlidePanel extends ViewGroup
                     if (view == leftBtn)
                     {
                         type = VANISH_TYPE_LEFT;
+                        vanishOnBtnClick(type);
                     } else if (view == rightBtn)
                     {
-                        type = VANISH_TYPE_RIGHT;
+                        addBtnListener.onClick(view);
                     }
-                    vanishOnBtnClick(type);
+
                 }
             }
         };
@@ -703,5 +707,17 @@ public class CardSlidePanel extends ViewGroup
          * @param index         点击到的index
          */
         public void onItemClick(View cardImageView, int index);
+    }
+
+    public void setAddBtnListener(AddBtnListener addBtnListener)
+    {
+        Log.d("CardSlidePanel", "setAddBtnListener");
+        this.addBtnListener = addBtnListener;
+    }
+
+    public interface AddBtnListener
+    {
+        public void onClick(View view);
+
     }
 }
