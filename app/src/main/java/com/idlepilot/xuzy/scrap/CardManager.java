@@ -63,4 +63,13 @@ public class CardManager
     {
         dbW.execSQL("delete from card");
     }
+
+    public void printAllCardInfo()
+    {
+        ArrayList<CardDataItem> cardList = loadAllCard();
+        for (int i = 0; i < cardList.size(); i++)
+        {
+            Log.d("CardManager", "card" + i + ":" + " imagePath:" + cardList.get(i).getImagePath() + " content:" + cardList.get(i).getContent() + " date:" + cardList.get(i).getDate());
+        }
+    }
 }

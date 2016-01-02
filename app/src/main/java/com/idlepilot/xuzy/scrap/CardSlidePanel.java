@@ -289,6 +289,8 @@ public class CardSlidePanel extends ViewGroup
 
             // 3. changedView填充新数据
             int newIndex = isShowing + 4;
+            Log.d("CardSlidePanel", "isShowing : " + isShowing);
+            Log.d("CardSlidePanel", "dataList.size : " + dataList.size());
             if (newIndex < dataList.size())
             {
                 CardDataItem dataItem = dataList.get(newIndex);
@@ -605,14 +607,23 @@ public class CardSlidePanel extends ViewGroup
         return result | (childMeasuredState & MEASURED_STATE_MASK);
     }
 
+    public void showDataList()
+    {
+        for (int i = 0; i < dataList.size(); i++)
+        {
+            Log.d("CardSlidePanel", "card" + i + ":" + " imagePath:" + dataList.get(i).getImagePath() + " content:" + dataList.get(i).getContent() + " date:" + dataList.get(i).getDate());
+        }
+    }
+
     /*
     * 返回顶层
     *
     * */
     public void renewData()
     {
+        isShowing = 0;
         int num = viewList.size();
-        Log.d("CardSlidePanel", "viewList数量 ： " + num);
+        showDataList();
         for (int i = 0; i < num; i++)
         {
             CardItemView itemView = (CardItemView) viewList.get(i);
@@ -668,6 +679,21 @@ public class CardSlidePanel extends ViewGroup
             itemView.setVisibility(View.VISIBLE);
             itemView.fillData(dataList.get(currentIndex++));
         }
+    }
+
+    public void appendData(CardDataItem appendData)
+    {
+        dataList.add(appendData);
+//        renewData();
+
+        /*int currentIndex = isShowing;
+        int num = viewList.size();
+        for (int i = 0; i < num; i++)
+        {
+            CardItemView itemView = viewList.get(i);
+            itemView.setVisibility(View.VISIBLE);
+            itemView.fillData(dataList.get(currentIndex++));
+        }*/
     }
 
     /**
