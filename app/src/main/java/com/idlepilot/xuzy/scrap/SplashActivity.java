@@ -12,7 +12,7 @@ public class SplashActivity extends Activity {
     private GifView startGif;
 
     //等待gif播放完毕
-    private final int SPLASH_DISPLAY_LENGHT = 9600;
+    private final int SPLASH_DISPLAY_LENGHT = 8000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

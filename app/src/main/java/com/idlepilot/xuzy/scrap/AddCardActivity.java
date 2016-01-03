@@ -45,10 +45,11 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class AddCardActivity extends Activity
+public class AddCardActivity extends FragmentActivity
 {
     private Button addButton;
     private Button confirmButton;
+    private Button cancelButton;
     private ImageView imageView;
     private TextView date;
     private EditText content;
@@ -69,6 +70,7 @@ public class AddCardActivity extends Activity
         setContentView(R.layout.card_add_layout);
         addButton = (Button) findViewById(R.id.card_add_button);
         confirmButton = (Button) findViewById(R.id.card_confirm_btn);
+        cancelButton =  (Button) findViewById(R.id.card_cancel_btn);
         imageView = (ImageView) findViewById(R.id.cardadd_imageView);
         date = (TextView) findViewById(R.id.card_date);
         content = (EditText) findViewById(R.id.card_content);
@@ -122,6 +124,18 @@ public class AddCardActivity extends Activity
 
             }
         });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+
+                startActivity(new Intent(AddCardActivity.this, MainActivity.class));
+                finish();
+
+            }
+        });
+
         final View.OnClickListener mylistener = new View.OnClickListener()
         {
 
