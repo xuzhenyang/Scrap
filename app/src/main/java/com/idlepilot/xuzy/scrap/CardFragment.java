@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,10 +31,18 @@ public class CardFragment extends Fragment
 
     private List<CardDataItem> dataList = new ArrayList<CardDataItem>();
 
+    private String date = null;
+    private int cardIndex = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
+        //获取CalendarActivity的数据
+        Intent intent = getActivity().getIntent();
+        this.date = (String) intent.getSerializableExtra("date");
+        Log.d("CardFragment", "onCreate传入日期 ：" + date);
+
         View rootView = inflater.inflate(R.layout.card_layout, null);
         initView(rootView);
 
@@ -65,7 +74,7 @@ public class CardFragment extends Fragment
                 Log.d("CardFragment", "卡片点击-" + dataList.get(index).getContent());
             }
         };
-//        slidePanel.setCardSwitchListener(cardSwitchListener);
+        slidePanel.setCardSwitchListener(cardSwitchListener);
 
 
         addBtnListener = new AddBtnListener()
@@ -73,7 +82,7 @@ public class CardFragment extends Fragment
             @Override
             public void onClick(View view)
             {
-                Log.d("CardFragment", "btnOnclick");
+//                Log.d("CardFragment", "btnOnclick");
                 Intent i = new Intent(getActivity(), AddCardActivity.class);
                 startActivity(i);
             }
@@ -83,6 +92,7 @@ public class CardFragment extends Fragment
         prepareDataList();
         slidePanel.fillData(dataList);
     }
+
 
     private void prepareDataList()
     {

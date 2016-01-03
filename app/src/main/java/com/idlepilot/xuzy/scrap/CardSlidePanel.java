@@ -26,6 +26,7 @@ import java.util.List;
 @SuppressLint({"HandlerLeak", "NewApi", "ClickableViewAccessibility"})
 public class CardSlidePanel extends ViewGroup
 {
+    private static final String TAG = "CardSlidePanel";
     private List<CardItemView> viewList = new ArrayList<CardItemView>(); // 存放的是每一层的view，从顶到底
     private List<View> releasedViewList = new ArrayList<View>(); // 手指松开后存放的view列表
 
@@ -57,7 +58,8 @@ public class CardSlidePanel extends ViewGroup
     private AddBtnListener addBtnListener;
     private List<CardDataItem> dataList; // 存储的数据链表
     private int isShowing = 0; // 当前正在显示的小项
-    private View leftBtn, centerBtn, rightBtn;
+    //    private View leftBtn, centerBtn, rightBtn;
+    public View leftBtn, centerBtn, rightBtn;
     private boolean btnLock = false;
     private GestureDetectorCompat moveDetector;
     private OnClickListener btnListener;
@@ -104,6 +106,7 @@ public class CardSlidePanel extends ViewGroup
                     int type = -1;
                     if (view == leftBtn)
                     {
+                        Log.d(TAG, "leftBtn onClick");
                         type = VANISH_TYPE_LEFT;
                         vanishOnBtnClick(type);
                     } else if (view == rightBtn)

@@ -1,5 +1,6 @@
 package com.idlepilot.xuzy.scrap;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,8 @@ import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 public class MainActivity extends FragmentActivity
 {
 
+    private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -33,7 +36,7 @@ public class MainActivity extends FragmentActivity
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName(R.string.drawer_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName(R.string.drawer_item_settings);
+        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName(R.string.drawer_item_calendar);
 
 //create the drawer and remember the `Drawer` result object
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -46,8 +49,7 @@ public class MainActivity extends FragmentActivity
                 .addDrawerItems(
                         item1,
                         new DividerDrawerItem(),
-                        item2,
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings)
+                        item2
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener()
                 {
@@ -55,12 +57,18 @@ public class MainActivity extends FragmentActivity
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem)
                     {
                         // do something with the clicked item :D
+                        if (position == 2)
+                        {
+                            Intent i = new Intent(MainActivity.this, CalendarActivity.class);
+                            startActivity(i);
+                        }
                         return true;
                     }
                 })
                 .build();
 
         initImageLoader();
+
         //有毒 此判断本意是为了保证翻转屏幕后不变
         //然而它在这里new CardFragment。。。
         if (savedInstanceState == null)

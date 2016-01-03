@@ -9,6 +9,7 @@ import android.util.Log;
 import com.idlepilot.xuzy.scrap.model.CardDataItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by xuzywozz on 2015/12/30.
@@ -34,7 +35,6 @@ public class CardManager
     {
         ArrayList<CardDataItem> cardList = new ArrayList<CardDataItem>();
         Cursor c = dbR.query("card", null, null, null, null, null, null);//查询并获得游标
-        Log.d("CardManager", "count : " + c.getCount());
         while (c.moveToNext())
         {
             CardDataItem card = new CardDataItem();
@@ -45,6 +45,8 @@ public class CardManager
             Log.d("CardManager", "content : " + card.getContent());
             cardList.add(card);
         }
+        //懒得改sql顺序 直接反向排列
+        Collections.reverse(cardList);
         return cardList;
     }
 
@@ -71,5 +73,15 @@ public class CardManager
         {
             Log.d("CardManager", "card" + i + ":" + " imagePath:" + cardList.get(i).getImagePath() + " content:" + cardList.get(i).getContent() + " date:" + cardList.get(i).getDate());
         }
+    }
+
+    public boolean isThisDayHasCard(String date)
+    {
+        Cursor cursor = dbR.rawQuery("select * from card where date = ?", new String[]{date});
+        if (cursor.moveToNext())
+        {
+            return true;
+        }
+        return false;
     }
 }
