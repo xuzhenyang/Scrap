@@ -1,6 +1,8 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.db;
 
 import android.annotation.SuppressLint;
+
+import com.idlepilot.xuzy.scrap.model.CustomDate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

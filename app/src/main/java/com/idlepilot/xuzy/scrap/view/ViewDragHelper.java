@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 
 import android.content.Context;

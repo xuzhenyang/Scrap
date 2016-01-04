@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,6 +7,8 @@ import android.graphics.Movie;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.idlepilot.xuzy.scrap.R;
 
 /**
  * Created by Administrator on 2016/1/2.

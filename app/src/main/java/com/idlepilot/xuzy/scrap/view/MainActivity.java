@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
+import com.idlepilot.xuzy.scrap.R;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;

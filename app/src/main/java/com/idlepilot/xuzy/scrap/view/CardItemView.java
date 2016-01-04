@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.idlepilot.xuzy.scrap.R;
 import com.idlepilot.xuzy.scrap.model.CardDataItem;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

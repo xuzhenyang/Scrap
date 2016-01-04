@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

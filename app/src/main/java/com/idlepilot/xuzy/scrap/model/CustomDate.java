@@ -1,4 +1,6 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.model;
+
+import com.idlepilot.xuzy.scrap.db.DateUtil;
 
 import java.io.Serializable;
 

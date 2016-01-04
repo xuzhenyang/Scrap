@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.model;
 
 /**
  * Created by Administrator on 2016/1/2.

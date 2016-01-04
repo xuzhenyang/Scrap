@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.idlepilot.xuzy.scrap.db.CardDatabaseHelper;
 import com.idlepilot.xuzy.scrap.model.CardDataItem;
 
 import java.util.ArrayList;

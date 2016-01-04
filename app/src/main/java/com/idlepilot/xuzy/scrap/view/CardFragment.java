@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.idlepilot.xuzy.scrap.CardSlidePanel.CardSwitchListener;
-import com.idlepilot.xuzy.scrap.CardSlidePanel.AddBtnListener;
+import com.idlepilot.xuzy.scrap.controller.CardManager;
+import com.idlepilot.xuzy.scrap.controller.CardSlidePanel;
+import com.idlepilot.xuzy.scrap.controller.CardSlidePanel.CardSwitchListener;
+import com.idlepilot.xuzy.scrap.controller.CardSlidePanel.AddBtnListener;
+import com.idlepilot.xuzy.scrap.R;
 import com.idlepilot.xuzy.scrap.model.CardDataItem;
 
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class CardFragment extends Fragment
 {
 
     private CardSwitchListener cardSwitchListener;
-    private CardSlidePanel.AddBtnListener addBtnListener;
+    private AddBtnListener addBtnListener;
 
     private List<CardDataItem> dataList = new ArrayList<CardDataItem>();
 

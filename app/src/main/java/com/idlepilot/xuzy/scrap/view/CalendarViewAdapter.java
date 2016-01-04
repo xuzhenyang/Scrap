@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

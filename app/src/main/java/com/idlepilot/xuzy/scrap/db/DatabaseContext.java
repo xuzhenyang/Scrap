@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.db;
 
 /**
  * Created by xuzywozz on 2015/12/30.

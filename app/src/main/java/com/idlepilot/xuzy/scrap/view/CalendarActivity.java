@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,11 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.idlepilot.xuzy.scrap.controller.CardManager;
+import com.idlepilot.xuzy.scrap.model.CustomDate;
+import com.idlepilot.xuzy.scrap.R;
+import com.idlepilot.xuzy.scrap.model.State;
 
 
 public class CalendarActivity extends Activity implements OnClickListener, CalendarCard.OnCellClickListener

@@ -1,4 +1,4 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.controller;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.idlepilot.xuzy.scrap.R;
+import com.idlepilot.xuzy.scrap.view.ViewDragHelper;
 import com.idlepilot.xuzy.scrap.model.CardDataItem;
+import com.idlepilot.xuzy.scrap.view.CardItemView;
 
 import java.util.ArrayList;
 import java.util.List;

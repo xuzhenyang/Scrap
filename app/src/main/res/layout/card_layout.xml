@@ -26,7 +26,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-        <com.idlepilot.xuzy.scrap.CardSlidePanel
+        <com.idlepilot.xuzy.scrap.controller.CardSlidePanel
             android:id="@+id/image_slide_panel"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -61,27 +61,27 @@
                     android:background="@drawable/add_button"/>
             </LinearLayout>
 
-            <com.idlepilot.xuzy.scrap.CardItemView
+            <com.idlepilot.xuzy.scrap.view.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"/>
 
-            <com.idlepilot.xuzy.scrap.CardItemView
+            <com.idlepilot.xuzy.scrap.view.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"/>
 
-            <com.idlepilot.xuzy.scrap.CardItemView
+            <com.idlepilot.xuzy.scrap.view.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"/>
 
-            <com.idlepilot.xuzy.scrap.CardItemView
+            <com.idlepilot.xuzy.scrap.view.CardItemView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"/>
 
-        </com.idlepilot.xuzy.scrap.CardSlidePanel>
+        </com.idlepilot.xuzy.scrap.controller.CardSlidePanel>
     </RelativeLayout>
 
 </LinearLayout>

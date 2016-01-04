@@ -1,9 +1,11 @@
-package com.idlepilot.xuzy.scrap;
+package com.idlepilot.xuzy.scrap.view;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.idlepilot.xuzy.scrap.R;
 
 /**
  * Created by Administrator on 2015/12/27.
